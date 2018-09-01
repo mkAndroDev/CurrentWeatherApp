@@ -1,4 +1,4 @@
-package com.dreamit.currentweatherapp.data.weathers.net
+package com.dreamit.currentweatherapp.net
 
 import com.dreamit.currentweatherapp.weathers.model.Weather
 import io.reactivex.Observable

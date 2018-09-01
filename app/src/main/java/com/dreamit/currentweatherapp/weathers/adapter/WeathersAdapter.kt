@@ -29,7 +29,7 @@ class WeathersAdapter(
         return weathers.size
     }
 
-    fun resetQuizzes(weathersToShow: List<Weather>) {
+    fun resetWeathers(weathersToShow: List<Weather>) {
         weathers = weathersToShow
     }
 

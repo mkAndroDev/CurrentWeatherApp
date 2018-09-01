@@ -5,15 +5,15 @@ import com.google.gson.annotations.SerializedName
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-class Weather : RealmObject() {
+open class Weather : RealmObject() {
 
     @PrimaryKey
     @Expose
     @SerializedName("id")
-    val id: Long = 0
+    var id: Long = 0
     @Expose
     @SerializedName("name")
-    val name = ""
+    var name = ""
 
     companion object {
         const val WEATHER_CITY_NAME = "name"

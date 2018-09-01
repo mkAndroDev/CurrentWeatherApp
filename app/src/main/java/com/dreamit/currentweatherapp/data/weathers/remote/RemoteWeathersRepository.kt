@@ -1,7 +1,9 @@
 package com.dreamit.currentweatherapp.data.weathers.remote
 
+import android.util.Log
 import com.dreamit.currentweatherapp.data.weathers.WeathersDataSource
-import com.dreamit.currentweatherapp.data.weathers.net.WeatherService
+import com.dreamit.currentweatherapp.net.APP_ID
+import com.dreamit.currentweatherapp.net.WeatherService
 import com.dreamit.currentweatherapp.weathers.model.Weather
 import io.reactivex.Observable
 
@@ -9,15 +11,19 @@ class RemoteWeathersRepository(
         private val remoteRepository: WeatherService
 ) : WeathersDataSource {
 
-    override fun getHistoricalWeathers(): Observable<List<Weather>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getHistoricalWeathers(): Observable<List<Weather>> =
+            Observable.fromCallable {
+                listOf<Weather>()
+            }
 
-    override fun getWeather(city: String): Observable<Weather> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getWeather(city: String): Observable<Weather> =
+            remoteRepository.getWeather(city, APP_ID)
 
     override fun saveWeather(weather: Weather) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.e(TAG, "Not implemented!")
+    }
+
+    companion object {
+        private val TAG = RemoteWeathersRepository::class.java.simpleName
     }
 }

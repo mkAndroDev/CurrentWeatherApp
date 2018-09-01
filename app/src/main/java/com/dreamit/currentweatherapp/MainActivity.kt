@@ -6,8 +6,21 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 import com.dreamit.currentweatherapp.weathers.view.WeathersFragment
+import io.realm.Realm
+import io.realm.RealmConfiguration
 
 class MainActivity : AppCompatActivity() {
+
+    val realm by lazy {
+        Realm.init(this)
+        val config = RealmConfiguration.Builder()
+                .name("quiz.realm")
+                .deleteRealmIfMigrationNeeded()
+                .schemaVersion(1)
+                .build()
+        Realm.setDefaultConfiguration(config)
+        Realm.getDefaultInstance()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

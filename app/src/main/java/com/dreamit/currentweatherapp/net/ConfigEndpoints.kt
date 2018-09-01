@@ -1,4 +1,4 @@
-package com.dreamit.currentweatherapp.data.weathers.net
+package com.dreamit.currentweatherapp.net
 
 val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 val HEADER_ACCEPT_TYPE = "application/json"

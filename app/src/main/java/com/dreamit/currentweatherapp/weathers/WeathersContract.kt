@@ -5,7 +5,7 @@ import com.dreamit.currentweatherapp.weathers.model.Weather
 interface WeathersContract {
 
     interface View {
-        fun showLastSearches(cities: List<Weather>)
+        fun showLastSearches(weathers: List<Weather>)
 
         fun showCurrentWeather(weather: Weather)
 

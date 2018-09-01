@@ -1,4 +1,4 @@
-package com.dreamit.currentweatherapp.data.weathers.net
+package com.dreamit.currentweatherapp.net
 
 import com.google.gson.GsonBuilder
 import okhttp3.Credentials
