@@ -1,17 +1,22 @@
 package com.dreamit.currentweatherapp
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.view.inputmethod.InputMethodManager
-import com.dreamit.currentweatherapp.weathers.view.WeathersFragment
+import com.dreamit.currentweatherapp.cities.view.CitiesFragment
+import com.dreamit.currentweatherapp.net.WeatherService
+import com.dreamit.currentweatherapp.net.getRestClient
 import io.realm.Realm
 import io.realm.RealmConfiguration
 
+
 class MainActivity : AppCompatActivity() {
 
-    val realm by lazy {
+    val realm: Realm by lazy {
         Realm.init(this)
         val config = RealmConfiguration.Builder()
                 .name("quiz.realm")
@@ -21,12 +26,24 @@ class MainActivity : AppCompatActivity() {
         Realm.setDefaultConfiguration(config)
         Realm.getDefaultInstance()
     }
+    val weathersService: WeatherService by lazy {
+        getRestClient()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadFragment(WeathersFragment(), false)
+        loadFragment(CitiesFragment(), false)
+    }
+
+    fun hideKeyboard() {
+        val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val view = currentFocus?.let {
+            it
+        } ?: View(this)
+
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     fun loadFragment(fragment: Fragment, addToBackStack: Boolean) {

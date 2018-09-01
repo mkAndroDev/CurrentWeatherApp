@@ -1,15 +1,17 @@
 package com.dreamit.currentweatherapp.net
 
-import com.dreamit.currentweatherapp.weathers.model.Weather
+import com.dreamit.currentweatherapp.data.cities.model.CityResponse
+import com.dreamit.currentweatherapp.weather.model.CityWeather
 import io.reactivex.Observable
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface WeatherService {
 
-    @GET("weather?q={city}&appid={appi}")
-    fun getWeather(@Path("city") city: String, @Path("appid") appId: String): Observable<Weather>
+    @GET("find")
+    fun getCities(@Query("q") city: String, @Query("appid") appId: String): Observable<CityResponse>
+
+    @GET("weather")
+    fun getWeather(@Query("q") city: String, @Query("appid") appId: String): Observable<CityWeather>
 
 }
-
-////https://api.openweathermap.org/data/2.5/weather?q=Lowicz,pl&appid=215bab20e02e3067529fc4c0b1c67041

@@ -1,11 +1,11 @@
-package com.dreamit.currentweatherapp.weathers.model
+package com.dreamit.currentweatherapp.cities.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-open class Weather : RealmObject() {
+open class City : RealmObject() {
 
     @PrimaryKey
     @Expose
@@ -13,9 +13,12 @@ open class Weather : RealmObject() {
     var id: Long = 0
     @Expose
     @SerializedName("name")
-    var name = ""
+    var name: String? = null
+    @Expose
+    @SerializedName("sys")
+    var sys: Sys? = null
 
     companion object {
-        const val WEATHER_CITY_NAME = "name"
+        const val CITY_NAME_FIELD = "name"
     }
 }

@@ -20,7 +20,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/iv_search"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="London, Uk" />
+        tools:text="London" />
 
     <ImageView
         android:id="@+id/iv_search"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_weathers"
+        android:id="@+id/rv_cities"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"

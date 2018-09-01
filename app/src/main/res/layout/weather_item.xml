@@ -2,43 +2,32 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_weather_item"
+    android:id="@+id/cl_city_item"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_weather_item_title"
+        android:id="@+id/tv_city_item_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/tv_weather_item_description"
+        app:layout_constraintRight_toLeftOf="@+id/tv_city_item_country"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Łowicz, PL" />
+        tools:text="Łowicz" />
 
     <TextView
-        android:id="@+id/tv_weather_item_description"
+        android:id="@+id/tv_city_item_country"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintLeft_toRightOf="@id/tv_weather_item_title"
-        app:layout_constraintRight_toLeftOf="@+id/tv_weather_item_temp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="scattered clouds" />
-
-    <TextView
-        android:id="@+id/tv_weather_item_temp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_city_item_name"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="25*C" />
+        tools:text="PL" />
 
 </android.support.constraint.ConstraintLayout>
