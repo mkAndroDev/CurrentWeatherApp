@@ -11,8 +11,8 @@ class RemoteWeatherRepository(
         private val remoteRepository: WeatherService
 ) : WeatherDataSource {
 
-    override fun getWeather(city: String): Observable<CityWeather> =
-            remoteRepository.getWeather(city, APP_ID)
+    override fun getWeather(cityId: Long): Observable<CityWeather> =
+            remoteRepository.getWeather(cityId, APP_ID)
 
     override fun saveWeather(cityWeather: CityWeather) {
         Log.e(TAG, "saveWeather -> Not implemented!")

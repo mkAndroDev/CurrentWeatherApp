@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.dreamit.currentweatherapp.MainActivity
 import com.dreamit.currentweatherapp.R
 import com.dreamit.currentweatherapp.data.weather.WeatherRepository
@@ -29,17 +30,19 @@ class WeatherFragment : Fragment(), WeatherContract.View {
     private val presenter by lazy {
         WeatherPresenter(repository, this)
     }
+    private var cityId: Long = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cities, container, false)
+        return inflater.inflate(R.layout.fragment_weather, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        cityId = arguments?.getLong("cityId", 0) ?: 0L
         initViews()
-        presenter.getCurrentWeather("lodz,pl")
+        presenter.getCurrentWeather(cityId)
     }
 
     private fun initViews() {
@@ -47,12 +50,22 @@ class WeatherFragment : Fragment(), WeatherContract.View {
     }
 
     override fun showCurrentWeather(cityWeather: CityWeather) {
-
+        Toast.makeText(context, cityWeather.name, Toast.LENGTH_SHORT).show()
     }
 
     override fun showError(error: String) {
         view?.let {
             Snackbar.make(it, error, Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    companion object {
+        fun newInstance(cityId: Long): WeatherFragment {
+            val fragment = WeatherFragment()
+            val args = Bundle()
+            args.putLong("cityId", cityId)
+            fragment.arguments = args
+            return fragment
         }
     }
 }

@@ -10,8 +10,8 @@ class WeatherPresenter(
         private val view: WeatherContract.View
 ) : WeatherContract.Presenter {
 
-    override fun getCurrentWeather(cityName: String) {
-        repository.getWeather(cityName)
+    override fun getCurrentWeather(cityId: Long) {
+        repository.getWeather(cityId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ weather ->

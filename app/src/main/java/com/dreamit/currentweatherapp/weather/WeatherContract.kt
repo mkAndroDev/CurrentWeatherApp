@@ -11,7 +11,7 @@ interface WeatherContract {
     }
 
     interface Presenter {
-        fun getCurrentWeather(cityName: String)
+        fun getCurrentWeather(cityId: Long)
     }
 
 }

@@ -12,6 +12,6 @@ interface WeatherService {
     fun getCities(@Query("q") city: String, @Query("appid") appId: String): Observable<CityResponse>
 
     @GET("weather")
-    fun getWeather(@Query("q") city: String, @Query("appid") appId: String): Observable<CityWeather>
+    fun getWeather(@Query("id") cityId: Long, @Query("appid") appId: String): Observable<CityWeather>
 
 }

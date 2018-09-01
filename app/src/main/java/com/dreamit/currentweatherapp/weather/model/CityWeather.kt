@@ -27,6 +27,6 @@ open class CityWeather : RealmObject() {
     var main: Main? = null
 
     companion object {
-        const val WEATHER_CITY_NAME = "name"
+        const val WEATHER_CITY_ID = "id"
     }
 }

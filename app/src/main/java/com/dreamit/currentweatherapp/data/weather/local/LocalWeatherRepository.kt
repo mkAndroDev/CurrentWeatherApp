@@ -1,7 +1,7 @@
 package com.dreamit.currentweatherapp.data.weather.local
 
-import com.dreamit.currentweatherapp.weather.model.CityWeather
 import com.dreamit.currentweatherapp.data.weather.WeatherDataSource
+import com.dreamit.currentweatherapp.weather.model.CityWeather
 import io.reactivex.Observable
 import io.realm.Realm
 import kotlinx.coroutines.experimental.android.UI
@@ -11,15 +11,15 @@ class LocalWeatherRepository(
         private val localStorage: Realm
 ) : WeatherDataSource {
 
-    override fun getWeather(city: String): Observable<CityWeather> =
+    override fun getWeather(cityId: Long): Observable<CityWeather> =
             Observable.fromCallable {
-                getWeatherFromDatabase(city)
+                getWeatherFromDatabase(cityId)
             }
 
-    private fun getWeatherFromDatabase(city: String): CityWeather =
+    private fun getWeatherFromDatabase(cityId: Long): CityWeather =
             runBlocking(UI) {
                 val weather = localStorage.where(CityWeather::class.java)
-                        .equalTo(CityWeather.WEATHER_CITY_NAME, city)
+                        .equalTo(CityWeather.WEATHER_CITY_ID, cityId)
                         .findFirst()
 
                 weather?.let {

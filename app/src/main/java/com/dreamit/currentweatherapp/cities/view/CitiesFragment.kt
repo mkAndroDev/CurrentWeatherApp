@@ -16,6 +16,7 @@ import com.dreamit.currentweatherapp.cities.presenter.CitiesPresenter
 import com.dreamit.currentweatherapp.data.cities.CitiesRepository
 import com.dreamit.currentweatherapp.data.cities.local.LocalCitiesRepository
 import com.dreamit.currentweatherapp.data.cities.remote.RemoteCitiesRepository
+import com.dreamit.currentweatherapp.weather.view.WeatherFragment
 import kotlinx.android.synthetic.main.fragment_cities.*
 
 class CitiesFragment : Fragment(), CitiesContract.View, CitiesAdapter.OnCitiesAdapterListener {
@@ -55,6 +56,7 @@ class CitiesFragment : Fragment(), CitiesContract.View, CitiesAdapter.OnCitiesAd
             } else {
                 presenter.getHistoricalCities()
             }
+            (activity as MainActivity).hideKeyboard()
         }
         rv_cities.apply {
             setHasFixedSize(true)
@@ -79,7 +81,7 @@ class CitiesFragment : Fragment(), CitiesContract.View, CitiesAdapter.OnCitiesAd
         city.name?.let {
             presenter.saveCity(city)
             et_search.setText("")
-            (activity as MainActivity).hideKeyboard()
+            (activity as MainActivity).loadFragment(WeatherFragment.newInstance(city.id), true)
         }
     }
 }

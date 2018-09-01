@@ -5,7 +5,7 @@ import io.reactivex.Observable
 
 interface WeatherDataSource {
 
-    fun getWeather(city: String): Observable<CityWeather>
+    fun getWeather(cityId: Long): Observable<CityWeather>
 
     fun saveWeather(cityWeather: CityWeather)
 }
