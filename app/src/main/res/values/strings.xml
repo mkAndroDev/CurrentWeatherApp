@@ -3,7 +3,22 @@
 
     <string name="search_hint">City name</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weather_city_label">City:</string>
+    <string name="weather_country_label">Country:</string>
+    <string name="weather_title_label">Weather:</string>
+    <string name="weather_description_label">Weather description:</string>
+    <string name="weather_temperature_label">Temperature:</string>
+    <string name="weather_pressure_label">Pressure:</string>
+    <string name="weather_humidity_label">Humidity:</string>
+    <string name="weather_temperature_min_label">Temperature min:</string>
+    <string name="weather_temperature_max_label">Temperature max:</string>
+
+    <string name="temperature_celsius_symbol">\u2103</string>
+    <string name="humidity_symbol">%</string>
+    <string name="pressure_symbol">hPa</string>
+
+    <string name="error_unable_resolve">No internet connection!</string>
+    <string name="error_400">Server error!</string>
+    <string name="error_500">Server timeout error!</string>
 
 </resources>

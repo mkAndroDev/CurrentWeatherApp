@@ -16,6 +16,7 @@ import com.dreamit.currentweatherapp.cities.presenter.CitiesPresenter
 import com.dreamit.currentweatherapp.data.cities.CitiesRepository
 import com.dreamit.currentweatherapp.data.cities.local.LocalCitiesRepository
 import com.dreamit.currentweatherapp.data.cities.remote.RemoteCitiesRepository
+import com.dreamit.currentweatherapp.utils.getReadableErrorMessage
 import com.dreamit.currentweatherapp.weather.view.WeatherFragment
 import kotlinx.android.synthetic.main.fragment_cities.*
 
@@ -72,8 +73,10 @@ class CitiesFragment : Fragment(), CitiesContract.View, CitiesAdapter.OnCitiesAd
     }
 
     override fun showError(error: String) {
-        view?.let {
-            Snackbar.make(it, error, Snackbar.LENGTH_SHORT).show()
+        if (isAdded) {
+            view?.let {
+                Snackbar.make(it, getReadableErrorMessage(context!!, error), Snackbar.LENGTH_SHORT).show()
+            }
         }
     }
 

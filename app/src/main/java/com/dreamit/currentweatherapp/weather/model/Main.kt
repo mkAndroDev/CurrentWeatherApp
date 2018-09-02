@@ -8,7 +8,7 @@ open class Main : RealmObject() {
 
     @Expose
     @SerializedName("temp")
-    var temp: String? = null
+    var temp: Double? = null
     @Expose
     @SerializedName("pressure")
     var pressure: String? = null
