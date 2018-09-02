@@ -17,8 +17,8 @@ open class Main : RealmObject() {
     var humidity: String? = null
     @Expose
     @SerializedName("temp_min")
-    var tempMin: String? = null
+    var tempMin: Double? = null
     @Expose
     @SerializedName("temp_max")
-    var tempMax: String? = null
+    var tempMax: Double? = null
 }

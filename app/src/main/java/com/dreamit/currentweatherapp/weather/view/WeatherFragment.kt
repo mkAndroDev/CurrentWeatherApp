@@ -59,8 +59,8 @@ class WeatherFragment : Fragment(), WeatherContract.View {
             tv_weather_temperature.text = it.temp?.let { getCelsiusFormKelvins(it).toString() + getString(R.string.temperature_celsius_symbol) }
             tv_weather_pressure.text = it.pressure?.let { it + getString(R.string.pressure_symbol) }
             tv_weather_humidity.text = it.humidity?.let { it + getString(R.string.humidity_symbol) }
-            tv_weather_temp_min.text = it.tempMin?.let { it + getString(R.string.temperature_celsius_symbol) }
-            tv_weather_temp_max.text = it.tempMax?.let { it + getString(R.string.temperature_celsius_symbol) }
+            tv_weather_temp_min.text = it.tempMin?.let { getCelsiusFormKelvins(it).toString() + getString(R.string.temperature_celsius_symbol) }
+            tv_weather_temp_max.text = it.tempMax?.let { getCelsiusFormKelvins(it).toString() + getString(R.string.temperature_celsius_symbol) }
         }
     }
 
